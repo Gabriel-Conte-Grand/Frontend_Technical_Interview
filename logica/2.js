@@ -14,5 +14,32 @@
  */
 
 const t9Keyboard = (value) => {
-  return;
-};
+  const searchedValues = value.split("-")
+
+  const dictionary = {
+    2: ["A", "B", "C"],
+    3: ["D", "E", "F"],
+    4: ["G", "H", "I"],
+    5: ["J", "K", "L"],
+    6: ["M", "N", "0"],
+    7: ["P", "Q", "R", "S"],
+    8: ["T", "U", "V"],
+    9: ["W", "X", "Y", "Z"],
+  }
+
+  // console.log(searchedValues)
+
+  let result = ""
+
+  for (let i = 0; i < searchedValues.length; i++) {
+    const typedNumber = searchedValues[i][0]
+    const chosenLetter = dictionary[typedNumber].at(
+      searchedValues[i].length - 1
+    )
+    result = result + chosenLetter
+  }
+
+  return result
+}
+
+console.log(t9Keyboard("6-666-88-777-33-3-33-888"))

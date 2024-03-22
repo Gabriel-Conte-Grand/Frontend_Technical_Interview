@@ -18,5 +18,34 @@
 // {car: 'y', veces: 2}
 
 const contarCar = (value) => {
-  return;
-};
+  const formatedString = value
+    .toLowerCase()
+    .split(" ")
+    .join("")
+    .normalize("NFD") //reemplaza vocales acentuadas
+    .replace(/[\u0300-\u036f]/g, "")
+
+  const counter = {}
+
+  for (let i = 0; i < formatedString.length; i++) {
+    const character = formatedString[i]
+
+    if (
+      (character >= "a" && character <= "z") ||
+      (character >= "0" && character <= "9")
+    ) {
+      counter[character] = counter[character] ? counter[character] + 1 : 1
+    }
+  }
+
+  const result = Object.keys(counter).map((character) => {
+    return { car: character, veces: counter[character] }
+  })
+
+  result.sort((a, b) => a.car.localeCompare(b.car))
+
+  return result
+}
+
+// contarCar("Hoy ya es día 10")
+console.log(contarCar("Hoy ya es día 10"))
