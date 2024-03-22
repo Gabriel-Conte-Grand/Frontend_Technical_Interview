@@ -18,5 +18,34 @@
  */
 
 const waterBlocks = (value) => {
-  return;
-};
+  let aguaAtrapada = 0
+
+  let punteroIzq = 0
+  let punteroDerecho = value.length - 1
+
+  let maxIzq = 0
+  let maxDer = 0
+
+  while (punteroIzq < punteroDerecho) {
+    if (value[punteroIzq] <= value[punteroDerecho]) {
+      if (value[punteroIzq] >= maxIzq) {
+        maxIzq = value[punteroIzq]
+      } else {
+        aguaAtrapada += maxIzq - value[punteroIzq]
+      }
+      punteroIzq++
+    } else {
+      if (value[punteroDerecho] >= maxDer) {
+        maxDer = value[punteroDerecho]
+      } else {
+        aguaAtrapada += maxDer - value[punteroDerecho]
+      }
+      punteroDerecho--
+    }
+  }
+
+  return aguaAtrapada
+}
+
+// waterBlocks([4, 0, 3, 6, 1, 3])
+console.log(waterBlocks([4, 0, 3, 6, 1, 3]))
