@@ -74,6 +74,7 @@
 .mainContainer {
   height: calc(100vh - 72px);
   padding-block: 10px;
+  /* padding-bottom: 1.5rem; */
 }
 
 .swiperContainer {
@@ -101,30 +102,29 @@
 }
 
 .primerSlide {
-  margin-left: -16px;
-  margin-top: 16px;
-  width: max-content;
-  height: max-content;
+  margin-left: -1rem;
+  width: 100vw;
+  height: 70vh;
 }
 .segundoSlide {
-  margin-left: -16px;
-  margin-top: -16px;
-  width: max-content;
-  height: max-content;
+  margin-left: -1rem;
+  margin-top: -2rem;
+  width: 100vw;
+  height: 75vh;
 }
 
 .tercerSlide {
   margin-left: -16px;
-  margin-top: 40px;
-  width: 110%;
-  height: 65%;
+  margin-top: 1rem;
+  width: 100%;
+  height: 50vh;
 }
 .cuartoSlide {
   /* margin-left: -16px; */
   margin-top: 44px;
 
   width: 100%;
-  height: 80%;
+  height: 45vh;
 }
 
 .continueBtn {
@@ -134,10 +134,10 @@
 }
 
 .btnSecondary {
-  bottom: 40px;
+  /* bottom: 40px; */
   width: 100%;
   border: 2px solid #64c883;
-  /* width: 100%; */
+  font-family: var(--font-nunito-sans);
   border-radius: 8px;
   padding-block: 16px;
   background-color: transparent;
@@ -145,6 +145,7 @@
   font-weight: 800;
   color: #64c883;
   line-height: 24px;
+  margin-bottom: 1rem;
 }
 
 .goldenText {

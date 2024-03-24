@@ -19,7 +19,9 @@ export const Slide: FC<Props> = ({
     const swiper = useSwiper()
     return (
       <button
-        className={styles.btnSecondary}
+        className={`${styles.btnSecondary}
+        `}
+        // ${nunito_sans.className}
         onClick={() => swiper.slideNext()}
       >
         {children}
