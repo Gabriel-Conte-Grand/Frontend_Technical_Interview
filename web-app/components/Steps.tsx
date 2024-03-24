@@ -12,11 +12,6 @@ export const Steps: FC<Props> = ({ progress }) => {
 
   return (
     <div className={styles.progressBar}>
-      {/* <span className={styles.progressItem}></span>
-      <span className={styles.progressItem}></span>
-      <span className={styles.progressItem}></span>
-      <span className={styles.progressItem}></span> */}
-
       {numberOfSteps.map((step, idx) => {
         return (
           <span
