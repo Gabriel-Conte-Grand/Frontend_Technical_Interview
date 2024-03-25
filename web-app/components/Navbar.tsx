@@ -2,9 +2,6 @@ import React from "react"
 import styles from "@/styles/Home.module.css"
 import Link from "next/link"
 import Image from "next/image"
-import { Nunito_Sans } from "next/font/google"
-
-const nunito_sans = Nunito_Sans({ subsets: ["latin"] })
 
 export const Navbar = () => {
   return (
