@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    // gap: 4,
+    paddingHorizontal: 20,
   },
   progressItem: {
     paddingTop: 8,
