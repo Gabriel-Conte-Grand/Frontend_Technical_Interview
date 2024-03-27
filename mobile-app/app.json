@@ -26,6 +26,20 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+
+        {
+          "fonts": [
+            "./assets/fonts/NunitoSans_Black.ttf",
+            "./assets/fonts/NunitoSans_Bold.ttf",
+            "./assets/fonts/NunitoSans_ExtraBold.ttf",
+            "./assets/fonts/NunitoSans_Regular.ttf"
+          ]
+        }
+      ]
+    ]
   }
 }
