@@ -1,9 +1,7 @@
 import { View, Text, StyleSheet } from "react-native"
 import React, { FC } from "react"
 import { SlideProps } from "../types"
-import { useFonts } from "expo-font"
 import { ICarouselInstance } from "react-native-reanimated-carousel"
-import SuccessSlide from "./SuccessSlide"
 
 export default function Slide({
   itemProps,
@@ -12,47 +10,40 @@ export default function Slide({
   setProgress,
 }: {
   itemProps: SlideProps
-  isSuccessSlide?: boolean
   carouselRef: React.MutableRefObject<ICarouselInstance>
   progress: number
   setProgress: React.Dispatch<React.SetStateAction<number>>
 }) {
-  const { slideHeader, slideImage, buttonText, imageFooter, isSuccessSlide } =
-    itemProps
+  const { defaultSlide, successSlide = false } = itemProps
 
-  if (isSuccessSlide) {
-    return <SuccessSlide />
+  if (successSlide) {
+    return successSlide
+  } else {
+    return (
+      <View style={styles.containter}>
+        {defaultSlide.slideHeader}
+
+        {/* IMAGEN */}
+        {defaultSlide.slideImage}
+
+        {defaultSlide.imageFooter ? (
+          <Text style={styles.footer}>{defaultSlide.imageFooter}</Text>
+        ) : null}
+
+        {defaultSlide.buttonText && (
+          <Text
+            style={styles.button}
+            onPress={() => {
+              setProgress(progress + 1)
+              carouselRef.current.next()
+            }}
+          >
+            {defaultSlide.buttonText}
+          </Text>
+        )}
+      </View>
+    )
   }
-
-  return (
-    <View
-      style={{
-        flex: 1,
-        borderWidth: 1,
-        flexGrow: 1,
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      {slideHeader}
-
-      {/* IMAGEN */}
-      {slideImage}
-      {imageFooter ? <Text style={styles.footer}>{imageFooter}</Text> : null}
-
-      {buttonText && (
-        <Text
-          style={styles.button}
-          onPress={() => {
-            setProgress(progress + 1)
-            carouselRef.current.next()
-          }}
-        >
-          {buttonText}
-        </Text>
-      )}
-    </View>
-  )
 }
 
 const styles = StyleSheet.create({
