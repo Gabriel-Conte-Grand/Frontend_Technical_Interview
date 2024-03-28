@@ -1,29 +1,28 @@
-import { View, Text } from "react-native"
+import { View, Text, StyleSheet } from "react-native"
 import React, { FC } from "react"
 import { SlideProps } from "../types"
 import { useFonts } from "expo-font"
 import { ICarouselInstance } from "react-native-reanimated-carousel"
+import SuccessSlide from "./SuccessSlide"
 
 export default function Slide({
-  // slideHeader,
-  // slideImage,
-  // buttonText,
-  // imageFooter,
-  // isImageUp = false,
   itemProps,
-  index,
   carouselRef,
   progress,
   setProgress,
 }: {
   itemProps: SlideProps
-  index: number
+  isSuccessSlide?: boolean
   carouselRef: React.MutableRefObject<ICarouselInstance>
   progress: number
   setProgress: React.Dispatch<React.SetStateAction<number>>
 }) {
-  const { slideHeader, slideImage, buttonText, imageFooter, isImageUp } =
+  const { slideHeader, slideImage, buttonText, imageFooter, isSuccessSlide } =
     itemProps
+
+  if (isSuccessSlide) {
+    return <SuccessSlide />
+  }
 
   return (
     <View
@@ -32,7 +31,6 @@ export default function Slide({
         borderWidth: 1,
         flexGrow: 1,
         display: "flex",
-        // backgroundColor: "green",
         alignItems: "center",
       }}
     >
@@ -40,36 +38,50 @@ export default function Slide({
 
       {/* IMAGEN */}
       {slideImage}
-      {imageFooter ? imageFooter : null}
+      {imageFooter ? <Text style={styles.footer}>{imageFooter}</Text> : null}
 
-      <Text
-        style={{
-          position: "absolute",
-          bottom: 40,
-          textAlign: "center",
-          width: "90%",
-          fontSize: 16,
-          color: "#64C883",
-          paddingVertical: 16,
-          backgroundColor: "transparent",
-          borderWidth: 2,
-          borderColor: "#64C883",
-          textTransform: "uppercase",
-          // marginTop: -80,
-          borderRadius: 8,
-          fontFamily: "NunitoSans_Black",
-        }}
-        onPress={() => {
-          carouselRef.current.next()
-          if (progress === 4) {
-            setProgress(1)
-          } else {
+      {buttonText && (
+        <Text
+          style={styles.button}
+          onPress={() => {
             setProgress(progress + 1)
-          }
-        }}
-      >
-        {buttonText}
-      </Text>
+            carouselRef.current.next()
+          }}
+        >
+          {buttonText}
+        </Text>
+      )}
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  containter: {
+    flex: 1,
+    borderWidth: 1,
+    flexGrow: 1,
+    display: "flex",
+    alignItems: "center",
+  },
+  footer: {
+    fontFamily: "NunitoSans_SemiBold",
+    color: "#AAAAAA",
+    marginTop: 24,
+    fontSize: 12,
+  },
+  button: {
+    position: "absolute",
+    bottom: 40,
+    textAlign: "center",
+    width: "90%",
+    fontSize: 16,
+    color: "#64C883",
+    paddingVertical: 16,
+    backgroundColor: "transparent",
+    borderWidth: 2,
+    borderColor: "#64C883",
+    textTransform: "uppercase",
+    borderRadius: 8,
+    fontFamily: "NunitoSans_Black",
+  },
+})

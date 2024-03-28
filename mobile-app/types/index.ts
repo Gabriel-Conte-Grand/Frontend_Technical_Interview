@@ -6,4 +6,5 @@ export type SlideProps = {
   buttonText?: string
   imageFooter?: string
   isImageUp?: boolean
+  isSuccessSlide?: boolean
 }

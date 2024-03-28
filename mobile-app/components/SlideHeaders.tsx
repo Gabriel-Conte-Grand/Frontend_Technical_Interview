@@ -26,6 +26,37 @@ export const SecondHeader = () => {
   )
 }
 
+export const ThirdHeader = () => {
+  return (
+    <View style={{ ...styles.header, gap: 16 }}>
+      <Text style={styles.title}>VIVE TUS PROPIAS EXPERIENCIAS</Text>
+      {/* <Text style={styles.subtitle}> </Text> */}
+      <Text
+        style={{
+          fontFamily: "NunitoSans_ExtraBold",
+          textAlign: "center",
+          textTransform: "uppercase",
+          fontSize: 18,
+          color: "#64C883",
+        }}
+      >
+        Vive Tu pasión de forma única{" "}
+        <Text style={{ fontFamily: "NunitoSans_Bold", color: "white" }}>
+          COMO NUNCA LO IMAGINASTE
+        </Text>
+      </Text>
+    </View>
+  )
+}
+
+export const FourthHeader = () => {
+  return (
+    <View style={styles.header}>
+      <Text style={styles.title}>Descubre los mejores clubes</Text>
+    </View>
+  )
+}
+
 const styles = StyleSheet.create({
   header: {
     flexDirection: "column",
@@ -40,6 +71,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     fontSize: 28,
     fontFamily: "IntegralCF_Medium",
+    letterSpacing: 1,
   },
   subtitle: {
     color: "#64C883",
@@ -57,6 +89,10 @@ const styles = StyleSheet.create({
   },
   goldenText: {
     color: "#C9A555",
+    fontFamily: "NunitoSans_ExtraBold",
+  },
+  grenText: {
+    color: "#64C883",
     fontFamily: "NunitoSans_ExtraBold",
   },
 })

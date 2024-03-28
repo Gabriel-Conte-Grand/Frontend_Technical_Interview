@@ -1,7 +1,17 @@
+import { useFonts } from "expo-font"
 import { Tabs } from "expo-router"
 import { Image, StyleSheet, Text } from "react-native"
 
 export default function TabsLayout() {
+  const [fontsLoaded] = useFonts({
+    IntegralCF_Medium: require("../../assets/fonts/IntegralCF_Medium.ttf"),
+    NunitoSans_Black: require("../../assets/fonts/NunitoSans_Black.ttf"),
+    NunitoSans_ExtraBold: require("../../assets/fonts/NunitoSans_ExtraBold.ttf"),
+    NunitoSans_Bold: require("../../assets/fonts/NunitoSans_Bold.ttf"),
+    NunitoSans_SemiBold: require("../../assets/fonts/NunitoSans_SemiBold.ttf"),
+    NunitoSans_Regular: require("../../assets/fonts/NunitoSans_Regular.ttf"),
+  })
+
   return (
     <Tabs
       screenOptions={{

@@ -33,10 +33,12 @@
 
         {
           "fonts": [
+            "./assets/fonts/IntegralCF_Medium.ttf",
             "./assets/fonts/NunitoSans_Black.ttf",
             "./assets/fonts/NunitoSans_Bold.ttf",
             "./assets/fonts/NunitoSans_ExtraBold.ttf",
-            "./assets/fonts/NunitoSans_Regular.ttf"
+            "./assets/fonts/NunitoSans_Regular.ttf",
+            "./assets/fonts/NunitoSans_SemiBold.ttf"
           ]
         }
       ]
